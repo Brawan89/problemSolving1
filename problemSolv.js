@@ -19,7 +19,7 @@ for (let i = 1; i <= n; i++) {
 function isPalindrome(x) {
    return x.split('').reverse().join('').toLowerCase() === x.toLowerCase() ? true : false
  }
- //or 
+ //another answer.. 
  function isPalindrome(x) {
     let splitted = x.split("");
     let reversed = splitted.reverse("");
