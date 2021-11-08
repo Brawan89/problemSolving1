@@ -1,3 +1,4 @@
+//1
 const fizzbuzz = (n) => {
 for (let i = 1; i <= n; i++) {
     
@@ -14,16 +15,14 @@ for (let i = 1; i <= n; i++) {
 }}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+//2
+function isPalindrome(x) {
+   return x.split('').reverse().join('').toLowerCase() === x.toLowerCase() ? true : false
+ }
+ //or 
+ function isPalindrome(x) {
+    let splitted = x.split("");
+    let reversed = splitted.reverse("");
+    let joined = reversed.join("");
+    return joined.toLowerCase().replace('') == x.toLowerCase().replace('')
+   }
