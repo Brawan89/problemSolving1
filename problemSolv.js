@@ -14,11 +14,11 @@ for (let i = 1; i <= n; i++) {
 
 }}
 
-
 //2
 function isPalindrome(x) {
    return x.split('').reverse().join('').toLowerCase() === x.toLowerCase() ? true : false
  }
+
  //another answer.. 
  function isPalindrome(x) {
     let splitted = x.split("");
@@ -28,6 +28,14 @@ function isPalindrome(x) {
    }
 
 //3
+const whosOnline = (friends) => 
+  friends.reduce((a,{username, status, lastActivity}) => {
+  const frindsStatus = status === 'online' && lastActivity > 10 ? 'away' : status;
+  a[frindsStatus] ? a[frindsStatus].push(username) : a[frindsStatus] = [username];
+  return a;
+}, {})
+
+//4
 function solve(eq){
   return eq.split(/([*\+\-\/])/).reverse().join("");
 }
