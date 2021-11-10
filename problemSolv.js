@@ -26,3 +26,8 @@ function isPalindrome(x) {
     let joined = reversed.join("");
     return joined.toLowerCase().replace('') == x.toLowerCase().replace('')
    }
+
+//3
+function solve(eq){
+  return eq.split(/([*\+\-\/])/).reverse().join("");
+}
