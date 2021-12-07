@@ -10,7 +10,11 @@ Write a function named raisedToTheThird that takes in an array of numbers and re
 
 const raisedToTheThird = (arr) => {
   // Solution code here...
-
+  const array = [];
+  arr.map(element => {
+    array.push(Math.pow(element , 3))
+  });
+  return array
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -22,7 +26,8 @@ Write a function that appends ' The end.' to a string, and returns the modified 
 
 const appendTheEnd = (str) => {
   // Solution code here...
-  
+  let string = ' The end.'
+  return str + string;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -40,7 +45,7 @@ console.log(a) prints [1, 2, 3, 1]
 
 const appendFirstToLast = (arr) => {
   // Solution code here...
-  
+ 
 
 };
 
@@ -79,7 +84,11 @@ console.log(people[1].isAuthor) prints true
 
 const setStatusAsAuthor = (people) => {
   // Solution code here...
-  
+  // isAuthor 
+  let auther = people.map((e) => {
+    e.isAuthor = true;
+  });
+  return auther;
 };
 
 /* ------------------------------------------------------------------------------------------------
