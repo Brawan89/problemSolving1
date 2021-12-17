@@ -26,6 +26,8 @@ let starWarsPeople = [
 
 const sortStarWarsCharacters = (starWarsArr) => {
   // Solution code here...
+  return starWarsArr.sort((a, b) => b.height - a.height);
+  // return starWarsArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -36,6 +38,8 @@ Write a function named removeThree that takes an index and an array. The functio
 
 const removeThree = (idx, arr) => {
   // Solution code here...
+  arr.splice(idx, 3);
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -46,6 +50,8 @@ Write a function named joinArray that takes an array and joins all of the elemen
 
 const joinArray = (arr) => {
   // Solution code here...
+  const array = arr.join(" ");
+  return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -64,6 +70,12 @@ For example, if the input is 'Welcome', the output will be:
 const howMuchPencil = (str) => {
   let result = [];
   // Solution code here...
+  let st = str
+  for (let i = 0; i < str.length + 1; i++) {
+    result.push(st);
+    st = st.slice(1);
+  }
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -76,6 +88,8 @@ For example, wordsToCharList('gregor') returns ['g','r','e','g','o','r'].
 
 const wordsToCharList = (arr) => {
   // Solution code here...
+  const array = arr.split("");
+  return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -166,6 +180,9 @@ For example:
 
 const removeEvenValues = (arr) => {
   // Solution code here...
+  const array = arr.filter((n) => n % 2);
+  return array;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -185,6 +202,10 @@ removeLastCharacters('Gregor', 9) returns ''
 
 const removeLastCharacters = (str, numberOfCharacters) => {
   // Solution code here...
+  if (numberOfCharacters > 0) {
+    return str.slice(0, str.length - numberOfCharacters)}
+     else if (numberOfCharacters < 0) {return str}
+      else if (numberOfCharacters > str.length) {return " "}
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -196,6 +217,11 @@ Write a function named totalSumCSV that, given a string of comma-separated value
 const totalSumCSV = (str) => {
   let total = 0;
   // Solution code here...
+  let n = str.split(",");
+  for (let i = 0; i < n.length; i++) {
+    total += parseInt(n[i]);
+  }
+  return total;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -208,6 +234,8 @@ For example, removeVowels('gregor') returns 'grgr'.
 
 const removeVowels = (str) => {
   // Solution code here...
+  let rm = str.match(/[^ioeau]/g).join("");
+  return rm;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -222,6 +250,7 @@ Similarly, extractVowels('The quick brown fox') returns ['Th qck brwn fx', 'eioo
 
 const extractVowels = (str) => {
   // Solution code here...
+  
 };
 
 /* ------------------------------------------------------------------------------------------------

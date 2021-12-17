@@ -24,6 +24,8 @@ Returns: ['dyoll', 'eimaj'];
 
 const getNames = (arr) => {
   // Solution code here...
+  const array = arr.map((e) => e.name.split("").reverse().join(""));
+  return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -38,6 +40,13 @@ For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 
 const count = (target, input) => {
   // Solution code here...
+  const array = input.reduce((accumulator, array) => {
+    const ar = array.filter((e) => (e == target));
+    accumulator += ar.length;
+    return accumulator;
+  }, 0);
+  return array;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -52,6 +61,15 @@ For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 
 const totalSum = (input) => {
   // Solution code here...
+  const array = input.reduce((accumulator, arr) => {
+    const ar = arr.reduce((accumulator, item) => {
+      accumulator += item;
+      return accumulator;
+    }, 0);
+    accumulator += ar;
+    return accumulator;
+  }, 0);
+  return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -68,6 +86,18 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 
 const divisibleByFiveTwoToThePower = (input) => {
   // Solution code here...
+  const array = input.reduce((accumulator, ar) => {
+    const arr = ar
+      .filter((el) => {
+        if (typeof el == "number" && el % 5 == 0) {
+          return el 
+        };
+      })
+      .map((number) => Math.pow(2, number));
+      accumulator.push(arr);
+    return accumulator;
+  }, []);
+  return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -136,6 +166,14 @@ let starWarsData = [
 
 let findMaleAndFemale = (data) => {
   // Solution code here...
+  const arr = data.reduce((accumulator, item) => {
+    if ((item.gender === "male") | (item.gender === "female")) {
+      if (accumulator) accumulator += " and " + item.name;
+      else accumulator += item.name;
+    }
+    return accumulator;
+  }, "");
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------

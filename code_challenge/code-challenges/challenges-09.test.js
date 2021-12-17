@@ -20,6 +20,11 @@ Becomes:
 
 function transformToLis(obj) {
   // Solution code here...
+  let array = [];
+  for (const ob in obj) {
+    array.push(`<li>${ob}: ${obj[ob]}</li>`);
+  }
+  return array;
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -31,6 +36,10 @@ Write a function named addValues that, given an array of numbers as input, uses 
 
 const addValues = (arr) => {
   // Solution code here...
+  const array = arr.reduce((accumulator, num) => {
+    return (accumulator += num);
+  }, 0);
+  return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -47,6 +56,10 @@ Write a function named addPurchases that, given an array of objects as input, us
 
 const addPurchases = (arr) => {
   // Solution code here...
+  const array = arr.reduce((accumulator, el) => {
+    return (accumulator += el.purchasePrice);
+  }, 0);
+  return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -59,6 +72,10 @@ Note: You may not use the array's built-in length property.
 
 const countNumberOfElements = (arr) => {
   // Solution code here...
+  const array = arr.reduce((accumulator) => {
+    return (accumulator += 1);
+  }, 0);
+  return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -122,6 +139,11 @@ let starWarsData = [
 
 const returnNames = (arr) => {
   // Solution code here...
+  const array = arr.reduce((accumulator, el) => {
+    accumulator.push(el.name);
+    return accumulator;
+  }, []);
+  return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -134,6 +156,8 @@ Note: You must use reduce for this challenge. You may not use the built-in .reve
 
 const reversedString = (str) => {
   // Solution code here...
+  const array = str.split("").reduce((accumulator, el) => el + accumulator, "");
+  return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -187,6 +211,11 @@ const characters = [
 
 const countNumberOfChildren = (arr) => {
   // Solution code here...
+  const array = arr.reduce((accumulator, el) => {
+    if (el.children) accumulator += el.children.length;
+    return accumulator;
+  }, 0);
+  return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -199,6 +228,17 @@ Hint: The accumulator should begin as { count: 0, sum: 0 }
 
 const calculateAverage = (arr) => {
   // Solution code here...
+  const array = arr.reduce(
+    (accumulator, el) => {
+      accumulator.count++;
+      accumulator.sum += el;
+
+      return accumulator;
+    },
+    { count: 0, sum: 0 }
+  );
+
+  return array.sum / array.count;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -220,6 +260,11 @@ const isPrime = (value) => {
 
 const countPrimeNumbers = (arr) => {
   // Solution code here...
+  const array = arr.reduce((accumulator, number) => {
+    if (isPrime(number)) accumulator++;
+    return accumulator;
+  }, 0);
+  return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -263,6 +308,16 @@ const snorlaxData = {
 
 const extractStat = (statName, arr) => {
   // Solution code here...
+
+  const array = arr.reduce((accumulator, el) => {
+    if (el.stat.name == statName) accumulator = el;
+    return accumulator;
+  }, null);
+  if (array) {
+    return array;
+  } else {
+    return null;
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -277,6 +332,13 @@ Write a function named extractChildren that, given the array of characters from 
 
 const extractChildren = (arr) => {
   // Solution code here...
+  const array = arr.filter((e) => (e.name.match("a")))
+  .reduce((accumulator, item) => {
+    if (item.children) accumulator.push(...item.children);
+
+    return accumulator;
+  }, []);
+  return array;
 };
 
 /* ------------------------------------------------------------------------------------------------

@@ -23,6 +23,13 @@ function lower(str) {
 
 const updateAnimal = (arr, callback) => {
   // Solution code here...
+  let array = [];
+
+  arr.map((s) => {
+    array.push(callback(s));
+  });
+
+  return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -35,6 +42,8 @@ For example: 'Cat' would come before 'apple'
 
 const sortNames = (arr) => {
   // Solution code here...
+  let array = arr.sort();
+  return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -47,6 +56,9 @@ HINT: Beware... JS default is "Lexical" ordering.
 
 const sortNumbers = (arr) => {
   // Solution code here...
+  let array = arr.sort((a, b) => 
+  a - b);
+  return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -59,6 +71,10 @@ HINT: Do it with a custom sort callback, not with using `.reverse()`. ;)
 
 const sortBackwards = (arr) => {
   // Solution code here...
+ const array = arr.sort((a,b)=>{
+    return b -a;
+})
+    return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -73,6 +89,8 @@ For example, ['Alphabet', 'Zebra', 'alphabet', 'carrot'] is correctly sorted.
 
 const alphabetize = (arr) => {
   // Solution code here...
+  const array = arr.sort();
+  return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -90,6 +108,12 @@ Here is an example of the input:
 
 const sortByPrice = (arr) => {
   // Solution code here...
+  const array = arr.sort
+  (
+    (a, b) => a.price - b.price
+  );
+  return array;
+ 
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -102,6 +126,10 @@ For example, ['Alphabet', 'alphabet', 'carrot', 'Zebra'] is correctly sorted, an
 
 const alphabetizeBetter = (arr) => {
   // Solution code here...
+  const array =  arr.sort((a, b) => {
+    return a.toLowerCase() < b.toLowerCase() ? -1 : 1;
+  });
+  return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -112,6 +140,11 @@ Write a function named sortByLength that takes in an array of strings and return
 
 const sortByLength = (arr) => {
   // Solution code here...
+ const array = arr.sort
+ (
+   (a,b) => a.length < b.length ? -1 : 1
+ )
+  return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -124,6 +157,15 @@ For example, [1, 14, 0.2, -281, 54782] is only correctly sorted in that order.
 
 const sortNumbersByLength = (arr) => {
   // Solution code here...
+  const array = arr.sort
+  (
+    (a, b) => 
+  {
+    return String(a).length - String(b).length;
+  });
+
+  return array;
+
 };
 
 /*-----------------------------------------------------------------------------------------------
@@ -146,6 +188,13 @@ const people = [
 
 const sortPeople = (arr) => {
   // Solution code here...
+  const array = arr.sort
+  (
+    (a, b) => 
+    {
+    return a.lastName.toLowerCase() < b.lastName.toLowerCase() ? -1 : 1;
+  });
+  return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -160,6 +209,7 @@ If two people have the same full name, the younger one should come first. Do not
 
 const sortPeopleBetter = (arr) => {
   // Solution code here...
+  
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -186,6 +236,8 @@ const meetings = [
 
 const sortMeetingsByDay = (arr) => {
   // Solution code here...
+  
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -200,6 +252,8 @@ You DO NOT need to use your solution to Challenge 9 in completing Challenge 10.
 
 const sortSchedule = (arr) => {
   // Solution code here...
+ 
+  
 };
 
 /* ------------------------------------------------------------------------------------------------
