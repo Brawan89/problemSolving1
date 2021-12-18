@@ -184,6 +184,14 @@ Write a function named findShortest that, given the Star Wars data from Challeng
 
 let findShortest = (data) => {
   // Solution code here...
+  const dt = 
+  data.reduce((accumulator, item) => {
+    if(Number(accumulator.height) < Number(item.height)){
+      return accumulator;}
+      else{
+        return item;
+      }}).name
+  return dt;
 };
 
 /* ------------------------------------------------------------------------------------------------

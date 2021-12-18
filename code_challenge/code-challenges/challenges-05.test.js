@@ -26,8 +26,8 @@ let starWarsPeople = [
 
 const sortStarWarsCharacters = (starWarsArr) => {
   // Solution code here...
-  return starWarsArr.sort((a, b) => b.height - a.height);
-  // return starWarsArr;
+  const st = starWarsArr.sort((a, b) => b.height - a.height);
+  return st;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -135,6 +135,11 @@ const gruffaloCrumble = {
 const listFoods = (recipe) => {
   let result = [];
   // Solution code here...
+  recipe.ingredients.forEach
+  (
+    (item) => (result.push(item.slice(item.indexOf(" ", 3) + 1)))
+  );
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -148,6 +153,11 @@ You may also use other string or array methods.
 const splitFoods = (recipe) => {
   let result = [];
   // Solution code here...
+  recipe.ingredients.forEach
+  (
+    (item) => (result.push(item.split(" ").slice(2).join(" ")))
+  );
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -163,6 +173,11 @@ Return a new array containing just the verbs. For example, ['Mix until evenly di
 const stepActions = (recipe) => {
   let result = [];
   // Solution code here...
+  recipe.steps.forEach
+  (
+    (item) => (result.push(item.split(" ").slice(0, 1).join()))
+  );
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -180,9 +195,11 @@ For example:
 
 const removeEvenValues = (arr) => {
   // Solution code here...
-  const array = arr.filter((n) => n % 2);
-  return array;
-
+  let i = 0;
+  for (; i < arr.length; i++) {
+    (0 === arr[i] % 2) ? arr.splice(i--, 1) : [] ;
+  }
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -250,6 +267,10 @@ Similarly, extractVowels('The quick brown fox') returns ['Th qck brwn fx', 'eioo
 
 const extractVowels = (str) => {
   // Solution code here...
+  const st = [ 
+  str.replace(/[aeiou]/gi, ""),
+  str.match(/[aeiou]/gi).sort().join("") ];
+  return st;
   
 };
 

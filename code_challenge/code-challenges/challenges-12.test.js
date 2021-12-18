@@ -10,6 +10,13 @@ E.g. [4,2,7,5,9,2] -> 9
 ------------------------------------------------------------------------------------------------ */
 const maxInArray = (arr) => {
   // Solution code here...
+  const array = arr.reduce((accumulator, item) => {
+    if (item > accumulator) {
+      accumulator = item;
+    }
+    return accumulator;
+  }, 0);
+  return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -28,6 +35,8 @@ return: 23
 ------------------------------------------------------------------------------------------------ */
 const findMax = (matrix) => {
   // Solution code here...
+  const maxNum = Math.max(...matrix.map((max) => Math.max(...max)));
+  return maxNum;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -46,6 +55,9 @@ return: 35
 ------------------------------------------------------------------------------------------------ */
 const totalSum = (matrix) => {
   // Solution code here...
+  let sum = 0;
+  matrix.map((number) => number.map((e) => (sum += e)));
+  return sum;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -85,6 +97,17 @@ const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
   // Solution code here...
+  const total = [];
+
+  stores.forEach((item) => {
+    item.forEach((e, i) => {
+      if (total[i]) {
+        total[i] += e;
+      } else {
+        total.push(e);
+      }})
+    })
+  return total;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -99,6 +122,12 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 
 const salesData = (hours, data) => {
   // Solution code here...
+  const array = [];
+  data.map((e, i) => {array.push(
+    {sales: `${e} cookies` , time: hours[i] }
+    );
+  });
+  return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -136,6 +165,13 @@ const errands = [
 
 const howManyTreats = (arr) => {
   // Solution code here...
+  let treat = 0;
+
+  arr.map((item) => {
+    item.items.map((e) => {
+      if (e.name == "Treats") {treat = e.quantity}});
+  });
+  return treat;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -158,6 +194,12 @@ The top row of the board is considered row zero and row numbers increase as they
 
 const battleship = (board, row, col) => {
   //  Solution code here...
+  if(board[row][col] == "#") {
+    return "hit";
+  }
+  else {
+    return "miss";
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------

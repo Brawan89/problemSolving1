@@ -172,6 +172,12 @@ The input and output of this function are the same as the input and output from 
 
 const hasChildrenEntries = (arr, character) => {
   // Solution code here...
+  let child;
+  Object.entries(arr).forEach(([key, item]) => {
+    if (item.name == character) {
+      (item.children.length) ? child = true : child = false
+   }});
+  return child;
 
 };
 
@@ -231,6 +237,15 @@ const deceasedSpouses = ["Catelyn", "Lysa", "Robert", "Khal Drogo", "Alerie"];
 const houseSurvivors = (arr) => {
   const survivors = [];
   // Solution code here...
+  arr.forEach(
+    (item) => {
+    let sum = 0;
+    if (item.name) sum += 1;
+    item.spouse && !deceasedSpouses.includes(item.spouse) ? sum += 1 : '' ;
+    sum += item.children.length;
+    survivors.push({ house: item.house, members: sum });
+  });
+  return survivors;
 };
 
 /* ------------------------------------------------------------------------------------------------

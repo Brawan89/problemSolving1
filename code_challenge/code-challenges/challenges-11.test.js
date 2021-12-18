@@ -13,6 +13,9 @@ You can assume that neither firstName nor lastName will be blank
 ------------------------------------------------------------------------------------------------ */
 const toLastNames = (people) => {
   // Solution code here...
+  const p = people.map(
+    (item) => item.firstName + " " + item.lastName);
+  return p;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -117,6 +120,9 @@ Return either true or false.
 
 const validatePhoneNumber = (phoneNumber) => {
   // Solution code here...
+  const phone = /^(\(\d{3}\)|\d{3})[- ]?(\d{3})[- ]?(\d{4})$/
+  .test(phoneNumber)
+  return phone;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -130,7 +136,12 @@ findTagNames(['<div><h1>Hello, world!</h1></div>', '<p>Welcome to my site</p>'])
 
 const findTagNames = (elements) => {
   // Solution code here...
+  let tName = [];
+  elements.forEach((item) => 
+  (tName.push(...item.match(/\/\w*/gim))));
+  return tName;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 TESTS

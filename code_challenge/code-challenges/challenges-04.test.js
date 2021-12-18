@@ -70,6 +70,8 @@ Return an array containing all the matches.
 
 const isCapitalized = (str) => {
   // Solution code here...
+  const string = str.match(/\b[A-Z].*?\b/g) || [];
+  return string;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -79,6 +81,14 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 ------------------------------------------------------------------------------------------------ */
 const citiesAtoJ = (arr) => {
   // Solution code here...
+  const array = [];
+  arr.forEach((item) => 
+  {
+    if (item.match(/^[A-Ja-j].*/g)) {
+      array.push(...item.match(/^[A-Ja-j].*/g))}
+  });
+  return array;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -95,6 +105,11 @@ Do not use the vertical bar (pipe) in your pattern.
 
 const matchMonth = (input) => {
   // Solution code here...
+    if(input.toString().match(/^october$|^oct$|^October$|^Oct$/g)){
+       return true
+    } else{
+      return false
+    } 
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -109,6 +124,8 @@ The expected output of "Hello, and have a wonderful day!" is ["and ", "have ", "
 
 const noPunctuation = (str) => {
   // Solution code here...
+  const string = str.match(/[A-Za-z0-9]+\s/g)
+  return string;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -125,6 +142,8 @@ For example, 'Welcome to Code 301!' will return 'W_lc_m_ t_ C_d_ 301!'.
 
 let hangman = (str) => {
   // Solution code here...
+  let string = str.replace(/a|A|e|E|i|I|o|O|u|U/g, "_");
+  return string;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -142,6 +161,8 @@ const seashells =
 
 const findShells = (str) => {
   // Solution code here...
+  const string = str.match(/\w+ells\b/g);
+  return string;
 };
 
 /* ------------------------------------------------------------------------------------------------

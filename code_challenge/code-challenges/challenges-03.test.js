@@ -56,8 +56,7 @@ HINT: Beware... JS default is "Lexical" ordering.
 
 const sortNumbers = (arr) => {
   // Solution code here...
-  let array = arr.sort((a, b) => 
-  a - b);
+  let array = arr.sort((a, b) => a - b);
   return array;
 };
 
@@ -71,10 +70,10 @@ HINT: Do it with a custom sort callback, not with using `.reverse()`. ;)
 
 const sortBackwards = (arr) => {
   // Solution code here...
- const array = arr.sort((a,b)=>{
-    return b -a;
-})
-    return array;
+  const array = arr.sort((a, b) => {
+    return b - a;
+  });
+  return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -108,12 +107,8 @@ Here is an example of the input:
 
 const sortByPrice = (arr) => {
   // Solution code here...
-  const array = arr.sort
-  (
-    (a, b) => a.price - b.price
-  );
+  const array = arr.sort((a, b) => a.price - b.price);
   return array;
- 
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -126,7 +121,7 @@ For example, ['Alphabet', 'alphabet', 'carrot', 'Zebra'] is correctly sorted, an
 
 const alphabetizeBetter = (arr) => {
   // Solution code here...
-  const array =  arr.sort((a, b) => {
+  const array = arr.sort((a, b) => {
     return a.toLowerCase() < b.toLowerCase() ? -1 : 1;
   });
   return array;
@@ -140,10 +135,7 @@ Write a function named sortByLength that takes in an array of strings and return
 
 const sortByLength = (arr) => {
   // Solution code here...
- const array = arr.sort
- (
-   (a,b) => a.length < b.length ? -1 : 1
- )
+  const array = arr.sort((a, b) => (a.length < b.length ? -1 : 1));
   return array;
 };
 
@@ -157,15 +149,11 @@ For example, [1, 14, 0.2, -281, 54782] is only correctly sorted in that order.
 
 const sortNumbersByLength = (arr) => {
   // Solution code here...
-  const array = arr.sort
-  (
-    (a, b) => 
-  {
+  const array = arr.sort((a, b) => {
     return String(a).length - String(b).length;
   });
 
   return array;
-
 };
 
 /*-----------------------------------------------------------------------------------------------
@@ -188,10 +176,7 @@ const people = [
 
 const sortPeople = (arr) => {
   // Solution code here...
-  const array = arr.sort
-  (
-    (a, b) => 
-    {
+  const array = arr.sort((a, b) => {
     return a.lastName.toLowerCase() < b.lastName.toLowerCase() ? -1 : 1;
   });
   return array;
@@ -209,7 +194,23 @@ If two people have the same full name, the younger one should come first. Do not
 
 const sortPeopleBetter = (arr) => {
   // Solution code here...
-  
+  const array = arr.sort((a, b) => {
+    if (a.firstName == b.firstName) {
+      if (a.lastName == b.lastName) {
+        return a.age - b.age;
+      }
+      if (a.lastName > b.lastName) {
+        return 0;
+      } else {
+        return -1;
+      }
+    } else if (a.firstName > b.firstName) {
+      return 0;
+    } else {
+      return -1;
+    }
+  });
+  return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -236,8 +237,17 @@ const meetings = [
 
 const sortMeetingsByDay = (arr) => {
   // Solution code here...
-  
-
+  const sortDay = {
+    Monday: 1,
+    Tuesday: 2,
+    Wednesday: 3,
+    Thursday: 4,
+    Friday: 5,
+  };
+  const array = arr.sort((a, b) => ( 
+    sortDay[a.dayOfWeek] - sortDay[b.dayOfWeek] )
+     );
+  return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -252,8 +262,24 @@ You DO NOT need to use your solution to Challenge 9 in completing Challenge 10.
 
 const sortSchedule = (arr) => {
   // Solution code here...
- 
-  
+  const sortDay = {
+    "Monday":    1,
+    "Tuesday":   2,
+    "Wednesday": 3,
+    "Thursday":  4,
+    "Friday":    5,
+  }
+  const array = arr.sort((a, b) => {
+    let sDay  = sortDay[a.dayOfWeek];
+    let s2Day = sortDay[b.dayOfWeek];
+    if(sDay == s2Day){
+      if(a.start == b.start){
+        return (a.end - a.start) - (b.end - b.start);
+      }else{
+        return a.start - b.start;
+      }}
+  });
+  return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
